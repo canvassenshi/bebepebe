@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>I love you</title>
+    <link rel="icon" type="image/x-icon" href="gift.png">
+    <link rel="stylesheet" type="text/css" href="https://demo.plantpot.works/assets/css/normalize.css">
+    <link rel="stylesheet" href="https://use.typekit.net/opg3wle.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
+  </head>
+  <body>
+    <div id="container">
+      <div class="heart-like-button"></div>
+      <h1> <span id="id1">Click Me!</span></h1>
+    </div>
+
+    <audio controls src="happybirthday.ogg"></audio>
+
+
+    <script>
+        const button = document.querySelector(".heart-like-button");
+        const text = document.getElementById("id1");
+        const audio = new Audio("happybirthday.ogg");
+        function generateHeart() {
+            const heart = document.createElement("div");
+            const hearts = ["💘", "💓", "😍"];
+            const random = Math.floor(Math.random() * hearts.length);
+             heart.innerText = hearts[random];
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDuration = Math.random() * 5 + 6 + 's';
+            heart.classList.add('rain-heart');
+            document.body.appendChild(heart);
+    }
+
+        button.addEventListener("click", () => {
+            text.innerText = "Happy Birthday Baby";
+            setInterval(generateHeart, 100);
+            audio.play();
+        if (button.classList.contains("liked")) {
+            button.classList.remove("liked"); 
+        } else {
+            button.classList.add("liked");
+        }
+        });
+    </script>
+  </body>
+</html>
